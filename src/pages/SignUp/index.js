@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Platform } from 'react-native';
 
 import {
@@ -10,7 +10,16 @@ import {
   SubmitText,
 } from '../SignIn/styles';
 
+import { AuthContext } from '../../contexts/auth';
+
 export default function SignUp() {
+  const { user } = useContext(AuthContext);
+
+  function handleSignUp() {
+    alert('TESTE');
+    console.log(user.nome);
+  }
+
   return (
     <Background>
       <Container behavor={Platform.OS === 'ios' ? 'padding' : ''} enabled>
@@ -26,7 +35,7 @@ export default function SignUp() {
           <Input placeholder="Sua senha" />
         </AreaInput>
 
-        <SubmitButton>
+        <SubmitButton onPress={handleSignUp}>
           <SubmitText>Cadastrar</SubmitText>
         </SubmitButton>
       </Container>
