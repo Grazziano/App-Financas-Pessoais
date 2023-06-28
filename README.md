@@ -18,6 +18,7 @@ Lista de tecnologias que foram usadas nesse projeto:
 2. [Vector Icons](https://github.com/oblador/react-native-vector-icons)
 3. [Async Storage](https://react-native-async-storage.github.io/async-storage/)
 4. [Axios](https://axios-http.com/ptbr/)
+5. [date-fns](https://date-fns.org/)
 
 ## 🛠️ Abrir e rodar o projeto
 
