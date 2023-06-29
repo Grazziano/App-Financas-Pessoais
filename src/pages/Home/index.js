@@ -21,11 +21,19 @@ export default function Home() {
   const [listBalance, setListBalance] = useState([]);
   const [dateMovements, setDateMovements] = useState(new Date());
 
+  const [movements, setMovements] = useState([]);
+
   useEffect(() => {
     let isActive = true;
 
     async function getMovements() {
       let dateFormated = format(dateMovements, 'dd/MM/yyyy');
+
+      const receives = await api.get('/receives', {
+        params: {
+          date: dateFormated,
+        },
+      });
 
       const balance = await api.get('/balance', {
         params: {
@@ -34,6 +42,7 @@ export default function Home() {
       });
 
       if (isActive) {
+        setMovements(receives.data);
         setListBalance(balance.data);
       }
     }
@@ -63,10 +72,11 @@ export default function Home() {
       </Area>
 
       <List
-        data={[]}
+        data={movements}
         keyExtractor={(item) => item.id}
-        render={({ item }) => <HistoricoList />}
+        renderItem={({ item }) => <HistoricoList data={item} />}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBotton: 20 }}
       />
     </Background>
   );

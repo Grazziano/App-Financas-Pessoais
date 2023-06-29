@@ -10,12 +10,14 @@ export const ListBalance = styled.FlatList`
 `;
 
 export const Area = styled.View`
+  margin-top: 22px;
   background-color: #fff;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   flex-direction: row;
   padding-left: 14px;
   padding-right: 14px;
+  padding-top: 14px;
   align-items: baseline;
 `;
 
