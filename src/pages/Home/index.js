@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 import { AuthContext } from '../../contexts/auth';
 
 import Header from '../../components/Header';
 
-import { Background, ListBalance } from './styles';
+import { Area, Background, List, ListBalance, Title } from './styles';
 
 import api from '../../services/api';
 import { format } from 'date-fns';
 
 import { useIsFocused } from '@react-navigation/native';
 import BalanceItem from '../../components/BalanceItem';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import HistoricoList from '../../components/HistoricoList';
 
 export default function Home() {
   const isFocused = useIsFocused();
@@ -51,6 +53,20 @@ export default function Home() {
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.tag}
         renderItem={({ item }) => <BalanceItem data={item} />}
+      />
+
+      <Area>
+        <TouchableOpacity>
+          <Icon name="event" color="#121212" size={30} />
+        </TouchableOpacity>
+        <Title>Ultimas movimentações</Title>
+      </Area>
+
+      <List
+        data={[]}
+        keyExtractor={(item) => item.id}
+        render={({ item }) => <HistoricoList />}
+        showsVerticalScrollIndicator={false}
       />
     </Background>
   );
