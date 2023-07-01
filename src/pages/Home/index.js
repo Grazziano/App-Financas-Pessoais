@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Modal, TouchableOpacity } from 'react-native';
 
 import { AuthContext } from '../../contexts/auth';
 
@@ -12,8 +12,10 @@ import { format } from 'date-fns';
 
 import { useIsFocused } from '@react-navigation/native';
 import BalanceItem from '../../components/BalanceItem';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import HistoricoList from '../../components/HistoricoList';
+import CalendarModal from '../../components/CalendarModal';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function Home() {
   const isFocused = useIsFocused();
@@ -22,6 +24,8 @@ export default function Home() {
   const [dateMovements, setDateMovements] = useState(new Date());
 
   const [movements, setMovements] = useState([]);
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     let isActive = true;
@@ -79,7 +83,7 @@ export default function Home() {
       />
 
       <Area>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setModalVisible(true)}>
           <Icon name="event" color="#121212" size={30} />
         </TouchableOpacity>
         <Title>Ultimas movimentações</Title>
@@ -94,6 +98,10 @@ export default function Home() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBotton: 20 }}
       />
+
+      <Modal visible={modalVisible} animationType="fade" transparent={true}>
+        <CalendarModal setVisible={() => setModalVisible(false)} />
+      </Modal>
     </Background>
   );
 }
