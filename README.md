@@ -19,6 +19,7 @@ Lista de tecnologias que foram usadas nesse projeto:
 3. [Async Storage](https://react-native-async-storage.github.io/async-storage/)
 4. [Axios](https://axios-http.com/ptbr/)
 5. [date-fns](https://date-fns.org/)
+6. [react-native-calendars](https://github.com/wix/react-native-calendars)
 
 ## 🛠️ Abrir e rodar o projeto
 
