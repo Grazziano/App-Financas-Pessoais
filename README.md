@@ -2,6 +2,11 @@
   <h1>App Finanças Pessoais</h1>
 </div>
 
+<div align="center">
+  <img src="./docs/assets/image01.PNG" width="200" heigth="200">
+  <img src="./docs/assets/image04.PNG" width="200" heigth="200">
+</div>
+
 Aplicativo de Finanças Pessoais com React Native
 
 ## ✔️ Técnicas e tecnologias utilizadas
@@ -23,7 +28,7 @@ Lista de tecnologias que foram usadas nesse projeto:
 
 ## 🛠️ Abrir e rodar o projeto
 
-Para abrir e rodar o projeto, entre na pasta do projeto e execute ```expo install``` para instalar as dependências e ```expo start``` para iniciar o projeto.
+Para abrir e rodar o projeto, entre na pasta do projeto e execute `expo install` para instalar as dependências e `expo start` para iniciar o projeto.
 
 ## 📚 Mais informações
 
