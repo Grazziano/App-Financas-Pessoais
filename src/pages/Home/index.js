@@ -70,6 +70,11 @@ export default function Home() {
     }
   }
 
+  function filterDateMovements(dateSelected) {
+    // console.log(dateSelected);
+    setDateMovements(dateSelected);
+  }
+
   return (
     <Background>
       <Header title="Minhas movimentações" />
@@ -100,7 +105,10 @@ export default function Home() {
       />
 
       <Modal visible={modalVisible} animationType="fade" transparent={true}>
-        <CalendarModal setVisible={() => setModalVisible(false)} />
+        <CalendarModal
+          setVisible={() => setModalVisible(false)}
+          handleFilter={filterDateMovements}
+        />
       </Modal>
     </Background>
   );
